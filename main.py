@@ -19,15 +19,23 @@ def encoder(password):
             res = str(1)
         elif n == "9":
             res = str(2)
+        elif n == "0":
+            res = str(3)
         final_res += res
     return final_res
 
 
 def decoder(password):
-    pass
+    new_password = ""
+    for char in password:
+        new_char = (int(char) + 7) % 10
+        new_password += str(new_char)
+    return new_password
+
 
 def print_menu():
     print("Menu\n-------------\n1. Encode\n2. Decode\n3. Quit\n")
+
 
 def main():
 
@@ -51,11 +59,6 @@ def main():
             print(f"The encoded password is {encoder(password)}, and the original password is {decoder(encoder(password))}.")
         elif option == 3:
             game_continue = False
-
-
-
-
-
 
 
 if __name__ == "__main__":
